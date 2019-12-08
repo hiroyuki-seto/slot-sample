@@ -1,8 +1,10 @@
 package com.setoh.slotsample
 
-class SampleRepository {
+class SampleRepository(
+    private val remoteDataSource: SampleRemoteDataSource = SampleRemoteDataSource()
+) {
 
     fun fetchData(): String? {
-        return BadImplementationClass.fetchData()
+        return remoteDataSource.fetchData()
     }
 }
