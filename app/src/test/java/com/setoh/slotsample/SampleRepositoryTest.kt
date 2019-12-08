@@ -12,13 +12,6 @@ import org.junit.Before
 
 class SampleRepositoryTest {
 
-    private lateinit var sampleRepository: SampleRepository
-
-    @Before
-    fun setup() {
-        sampleRepository = SampleRepository()
-    }
-
     @Test
     fun fetchData() {
         mockkObject(OkHttpClientProvider)
@@ -30,6 +23,7 @@ class SampleRepositoryTest {
             OkHttpClientProvider.client
         } returns okHttpClient
 
+        val sampleRepository = SampleRepository()
 
         sampleRepository.fetchData()
 
